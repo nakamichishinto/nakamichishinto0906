@@ -117,7 +117,6 @@
         @foreach ($items as $item)
         <tr>
           <td> {{$item->created_at}}  </td>
-          
             <td>
               <input type="text"  name="content" class="form name-text" value="{{$item->content}}">
             </td>
@@ -133,6 +132,7 @@
 
           <form action="/todo/delete" method="POST">
           @csrf
+            <input type="hidden" name="id" value="{{$item->id}}">
             <td>
               <div class="button dlete">
                 <button>削除</button>
