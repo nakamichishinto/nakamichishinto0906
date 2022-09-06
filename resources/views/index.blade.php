@@ -10,7 +10,7 @@
 
 <style>
   body {
-    background-color:purple;
+    background-color:rgba(25,25,112);
   }
 
   h1 {
@@ -19,7 +19,7 @@
 
   .contents {
     background-color:white;
-    width:55vw;
+    width:60vw;
     height:300px;
     
     left:0;
@@ -45,8 +45,10 @@
     height:30px;
   }
 
+
+
   .name-text {
-    width:20vw;
+    width:25vw;
     height:20px;
   }
 
@@ -64,7 +66,9 @@
     text-decoration:none;
   }
 
-  button :hover {
+
+    
+  button a:hover {
     color: #333333;
     text-decoration: none;
     background-color: #a0c4d3;
@@ -115,14 +119,14 @@
       
 
         @foreach ($items as $item)
+        <form action="/todo/update" method="POST">
+          @csrf
+          <input type="hidden" name="id" value="{{$item->id}}">
         <tr>
-          <td> {{$item->created_at}}  </td>
+          <td class="time"> {{$item->created_at}}  </td>
             <td>
               <input type="text"  name="content" class="form name-text" value="{{$item->content}}">
             </td>
-
-          <form action="/todo/update" method="POST">
-          @csrf
             <td>
               <div class="button update">
                 <button>更新</button>

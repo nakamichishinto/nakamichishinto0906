@@ -30,9 +30,10 @@ class TodoController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, Todo::$rules);
-        $item=Todo::find($request->content);
-        $item->update();
-        
+        $item=Todo::find($request->id);
+        $item->update([
+            "content"=>$request->content,
+        ]);
         return redirect('/');
     }
 
