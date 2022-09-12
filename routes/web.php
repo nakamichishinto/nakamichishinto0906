@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,9 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 
 Route::get('/',[TodoController::class,'index']);
 
@@ -24,3 +28,4 @@ Route::post('/todo/update',[TodoController::class,'update']);
 
 
 Route::post('/todo/delete', [TodoController::class, 'delete']);
+

@@ -21,10 +21,9 @@
     background-color:white;
     width:60vw;
     height:300px;
-    
     left:0;
     top:0;
-    padding:20px;
+    padding:50px;
     margin: 200px auto;
     border-radius:10px;
   }
@@ -48,32 +47,69 @@
 
 
   .name-text {
-    width:25vw;
+    width:24vw;
     height:20px;
   }
 
-  button  {
+  .button-add {
     display: flex;
     justify-content: center;
     margin: 0 auto;
     padding: 9px 13px;
     width: 60px;
-    color: #2285b1;
+    border: 2px solid rgba(186,85,211);
     font-size: 12px;
     font-weight: 700;
-    border: 2px solid #2285b1;
     border-radius:7px;
     text-decoration:none;
+    background-color:white;
+    color:rgba(186,85,211);
   }
 
-
-    
-  button a:hover {
-    color: #333333;
-    text-decoration: none;
-    background-color: #a0c4d3;
+  .button-add:hover {
+    color:white;
+    background-color:rgba(186,85,211);
   }
 
+  .button-update {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 9px 13px;
+    width: 60px;
+    border: 2px solid rgba(255,140,0);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius:7px;
+    text-decoration:none;
+    background-color:white;
+    color:rgba(255,140,0);
+  }
+
+  .button-update:hover {
+    color:white;
+    background-color:rgba(255,140,0);
+  }
+
+  .button-delete {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 9px 13px;
+    width: 60px;
+    border: 2px solid rgba(0,255,255);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius:7px;
+    text-decoration:none;
+    background-color:white;
+    color:rgba(0,255,255);
+  }
+
+  .button-delete:hover {
+    color:white;
+    background-color:rgba(0,255,255);
+  }
 
   table {
     width:100%;
@@ -86,8 +122,7 @@
   }
 
   td {
-    width:20%;
-
+    width:40%;
   }
 
 
@@ -102,16 +137,14 @@
       @csrf
       <div class="add">
         <input type="text" name="content" class="form add-text">
-        <div class="button add">
-          <button>追加</button>
-        </div>
+        <button class="button-add">追加</button>
       </div>
     </form>
 
     <div class="task-list">
       <table>
         <tr>
-          <th>作成日</th>
+          <th class="time">作成日</th>
           <th>タスク名</th>
           <th>更新</th>
           <th>削除</th>
@@ -123,13 +156,13 @@
           @csrf
           <input type="hidden" name="id" value="{{$item->id}}">
         <tr>
-          <td class="time"> {{$item->created_at}}  </td>
+          <td class=""> {{$item->created_at}}  </td>
             <td>
               <input type="text"  name="content" class="form name-text" value="{{$item->content}}">
             </td>
             <td>
-              <div class="button update">
-                <button>更新</button>
+              <div >
+                <button class="button-update">更新</button>
               </div>
             </td>
           </form>
@@ -138,8 +171,8 @@
           @csrf
             <input type="hidden" name="id" value="{{$item->id}}">
             <td>
-              <div class="button dlete">
-                <button>削除</button>
+              <div >
+                <button class="button-delete">削除</button>
               </div>
             </td>
           </form>
