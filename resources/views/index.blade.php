@@ -139,6 +139,9 @@
         <input type="text" name="content" class="form add-text">
         <button class="button-add">追加</button>
       </div>
+      @error('content')
+      <p>文字数が多いです</p>
+      @enderror
     </form>
 
     <div class="task-list">
