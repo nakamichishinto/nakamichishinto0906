@@ -140,8 +140,10 @@
         <button class="button-add">追加</button>
       </div>
       @error('content')
-      <p>文字数が多いです</p>
+      <p>入力に問題があります</p>
       @enderror
+      
+
     </form>
 
     <div class="task-list">
