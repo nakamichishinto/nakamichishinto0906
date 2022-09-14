@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClientRequest;
 
 
 
@@ -15,6 +16,11 @@ class TodoController extends Controller
     {
         $items=Todo::all();
         
+        return view('index',['items' =>$items]);
+    }
+
+    public function post(ClientRequest $request)
+    {
         return view('index',['items' =>$items]);
     }
     

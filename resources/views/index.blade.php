@@ -139,9 +139,12 @@
         <input type="text" name="content" class="form add-text">
         <button class="button-add">追加</button>
       </div>
+
       @error('content')
-      <p>入力に問題があります</p>
+      <p>{{ $message }}</p>
       @enderror
+      
+      
       
 
     </form>
