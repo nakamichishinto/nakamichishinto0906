@@ -134,6 +134,7 @@
   
   <div class="contents">
     <h1>Todo List</h1>
+    <a href="/">ホームに戻る</a>
     
     <form action="/todo/search" method="get">
       <input type="text" name="keyword" value="">
@@ -174,14 +175,14 @@
         </tr>
       
 
-        @foreach ($items as $item)
+        @foreach ($posts as $post)
         <form action="/todo/update" method="POST">
           @csrf
-          <input type="hidden" name="id" value="{{$item->id}}">
+          <input type="hidden" name="id" value="{{$post->id}}">
         <tr>
-          <td class=""> {{$item->created_at}}  </td>
+          <td class=""> {{$post->created_at}}  </td>
             <td>
-              <input type="text"  name="content" class="form name-text" value="{{$item->content}}">
+              <input type="text"  name="content" class="form name-text" value="{{$post->content}}">
             </td>
             <td>
               <div >
@@ -192,7 +193,7 @@
 
           <form action="/todo/delete" method="POST">
           @csrf
-            <input type="hidden" name="id" value="{{$item->id}}">
+            <input type="hidden" name="id" value="{{$post->id}}">
             <td>
               <div >
                 <button class="button-delete">削除</button>
@@ -211,13 +212,3 @@
 
   </div>
 </body>
-
-
-
-
-
-
-
-
-
-<html>

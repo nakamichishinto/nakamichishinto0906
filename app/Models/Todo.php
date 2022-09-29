@@ -16,4 +16,9 @@ class Todo extends Model
     public static $rules = array(
         'content' => 'required|string|max:20'
     );
+
+    public function tags()
+    {
+        return $this->belongsToMany('APP\Tag','post_tag');
+    }
 }

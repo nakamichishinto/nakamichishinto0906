@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Middleware\FirstMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,25 @@ use App\Http\Controllers\TodoController;
 
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Route::get('/auth', [TodoController::class,'check']);
+Route::post('/auth', [TodoController::class,'checkUser']);
+
+Route::get('/logout',[TodoController::class,'logout']);
+
 
 Route::get('/',[TodoController::class,'index']);
 
+Route::get('/todo/search',[TodoController::class,'search']);
 
 
 Route::post('/todo/create',[TodoController::class,'create']);
